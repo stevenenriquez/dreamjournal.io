@@ -11,7 +11,7 @@ export default function Layout({ children }: RootLayoutProps) {
     return (
         <html lang="en">
             <head>
-                <title>The Dreamt</title>
+                <title>dreamjournal</title>
             </head>
             <body>
                 <SessionProvider>

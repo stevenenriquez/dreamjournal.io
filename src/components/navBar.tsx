@@ -11,7 +11,7 @@ export default function NavBar() {
 
     return (
         <nav className='text-center p-6'>
-            <h2 className='inline-block float-left pt-4'><Link href={path.home}>the dreamt</Link></h2>
+            <h2 className='inline-block float-left pt-4'><Link href={path.home}>dreamjournal</Link></h2>
             <SearchBar />
             <div className='inline-block p-2 float-right'>
                 {session ? (
