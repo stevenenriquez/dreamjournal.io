@@ -63,5 +63,5 @@ model VerificationToken {
 model Dream {
     id        String   @id @default(cuid())
     name      String
-    message   String   @db.VarChar(100)
+    body      String   @db.VarChar(100)
 }

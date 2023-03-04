@@ -2,7 +2,6 @@
 
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import SearchBar from './searchBar';
 import UserCircle from './userCircle';
 import path from '../utils/paths';
 
@@ -10,17 +9,22 @@ export default function NavBar() {
     const { data: session, status } = useSession();
 
     return (
-        <nav className='text-center p-6'>
-            <h2 className='inline-block float-left pt-4'><Link href={path.home}>dreamjournal</Link></h2>
-            <SearchBar />
-            <div className='inline-block p-2 float-right'>
+        <nav className='text-center p-4 flex'>
+            
+            <h2 className='flex'>
+                <Link href={path.home} className='flex-auto w-24 p-2'>Home</Link>
+                <Link href={path.explore}><p className='flex-auto w-32 p-2'>Explore</p></Link>
+                <Link href={path.myJournal}><p className=' flex-auto w-32 p-2'>My Journal</p></Link>
+            </h2>
+
+            <div className='ml-auto'>
                 {session ? (
                     <UserCircle />
                 ) : status === 'loading' ? (
                     <main>Loading...</main>
                 ) : (
-                    <button onClick={() => signIn('discord')}>
-                        Login with Discord
+                    <button className="p-2" onClick={() => signIn('discord')}>
+                        Sign In
                     </button>
                 )}
             </div>

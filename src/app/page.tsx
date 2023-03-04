@@ -1,5 +1,9 @@
 import '../styles/globals.css'
 
-export default function HomePage() {
-    return <h1 className='flex justify-center'>Home</h1>
+export default function Home() {
+    return (
+        <div className='text-center'>
+            Home
+        </div>
+    )
 }

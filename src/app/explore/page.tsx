@@ -1,7 +1,7 @@
-export default function MyJournal() {
+export default function Explore() {
     return (
         <div className='text-center'>
-            My Journal
+            Explore
         </div>
     );
 }
