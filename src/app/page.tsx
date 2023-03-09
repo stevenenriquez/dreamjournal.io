@@ -1,9 +1,5 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
 
 export default function Home() {
-    return (
-        <div className='text-center'>
-            Home
-        </div>
-    )
+    return <div className="text-center">Home</div>;
 }
