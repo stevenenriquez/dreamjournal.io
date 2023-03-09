@@ -1,8 +1,7 @@
 const paths = {
     home: '/',
     profile: '/profile',
-    myJournal: '/my-journal',
-    explore: '/explore',
-}
+    myJournal: '/my-journal'
+};
 
 export default paths;

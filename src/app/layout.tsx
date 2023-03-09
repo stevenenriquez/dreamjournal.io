@@ -1,11 +1,11 @@
 'use client';
 
-import NavBar from '../components/navBar';
+import NavBar from '../components/NavBar';
 import { SessionProvider } from 'next-auth/react';
 
 type RootLayoutProps = {
-  children: React.ReactNode
-}
+    children: React.ReactNode;
+};
 
 export default function Layout({ children }: RootLayoutProps) {
     return (
@@ -13,7 +13,7 @@ export default function Layout({ children }: RootLayoutProps) {
             <head>
                 <title>dreamjournal</title>
             </head>
-            <body>
+            <body className="bg-black text-white">
                 <SessionProvider>
                     <NavBar />
                     {children}

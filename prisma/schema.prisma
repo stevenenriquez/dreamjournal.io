@@ -9,12 +9,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -50,18 +44,35 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Dream         Dream[]
 }
 
 model VerificationToken {
   identifier String
-  token      String   @unique
+  token      String    @unique
   expires    DateTime
 
   @@unique([identifier, token])
 }
 
 model Dream {
-    id        String   @id @default(cuid())
-    name      String
-    body      String   @db.VarChar(100)
+  id         String     @id @default(cuid())
+  title      String     @db.VarChar(255)
+  content    String
+  type       DreamType[]
+  image      String[]
+  author     User       @relation(fields: [authorId], references: [id])
+  authorId   String
+  sleepTime  DateTime
+  wakeTime   DateTime
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  published  Boolean    @default(false)
+}
+
+enum DreamType {
+  LUCID
+  SLEEP_PARALYSIS
+  NIGHTMARE
+  RECURRING
 }
