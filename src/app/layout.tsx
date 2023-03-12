@@ -11,7 +11,8 @@ export default function Layout({ children }: RootLayoutProps) {
     return (
         <html lang="en">
             <head>
-                <title>dreamjournal</title>
+                <title>Dream Journal</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
             <body className="bg-black text-white">
                 <SessionProvider>

@@ -1,17 +1,38 @@
 'use client';
 
 import { useState } from 'react';
+import { HTTP_METHODS } from '../../constants/db';
 
 export default function AddDream() {
     const [formData, setFormData] = useState({
         title: '',
-        date: '',
-        time: '',
-        dream: ''
+        content: '',
+        sleepTime: '',
+        wakeTime: '',
     });
 
+    const handleCreate = async () => {
+        try {
+            const body = {
+                title: formData.title,
+                content: formData.content,
+                sleepTime: formData.sleepTime,
+                wakeTime: formData.wakeTime
+            }
+
+            console.log(body)
+
+            await fetch('/api/dream', {
+                method: HTTP_METHODS.POST, 
+                body: JSON.stringify(body),
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     return (
-        <div className="mt-10">
+        <div className="mt-10 text-center">
             <h1>Add Dream</h1>
             <div className="m-4">
                 <input
@@ -27,22 +48,22 @@ export default function AddDream() {
             </div>
             <div className="m-4">
                 <input
-                    type="date"
-                    name="Date"
-                    placeholder="Date"
-                    value={formData.date}
+                    type="datetime-local"
+                    name="Sleep Time"
+                    placeholder="Sleep Time"
+                    value={formData.sleepTime}
                     onChange={event =>
-                        setFormData({ ...formData, date: event.target.value })
+                        setFormData({ ...formData, sleepTime: event.target.value })
                     }
                     className="mr-2 w-3/12 rounded-xl border border-white bg-black p-2"
                 />
                 <input
-                    type="time"
-                    name="Time"
-                    placeholder="Time"
-                    value={formData.time}
+                    type="datetime-local"
+                    name="Wake Time"
+                    placeholder="Wake Time"
+                    value={formData.wakeTime}
                     onChange={event =>
-                        setFormData({ ...formData, time: event.target.value })
+                        setFormData({ ...formData, wakeTime: event.target.value })
                     }
                     className="w-3/12 rounded-xl border border-white bg-black p-2"
                 />
@@ -51,15 +72,15 @@ export default function AddDream() {
                 <textarea
                     name="Dream"
                     placeholder="Dream"
-                    value={formData.dream}
+                    value={formData.content}
                     onChange={event =>
-                        setFormData({ ...formData, dream: event.target.value })
+                        setFormData({ ...formData, content: event.target.value })
                     }
                     className="mb-4 w-3/6 rounded-xl border border-white bg-black p-4"
                 />
             </div>
             <button
-                onClick={() => console.log(formData)}
+                onClick={() => handleCreate()}
                 className="w-16 rounded-lg bg-gray-800 px-4"
             >
                 Add

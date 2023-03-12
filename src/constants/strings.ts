@@ -1,0 +1,1 @@
+export const DEFAULT_TRUNCATE_LENGTH = 50;

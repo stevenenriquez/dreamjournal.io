@@ -1,7 +1,8 @@
 const paths = {
     home: '/',
     profile: '/profile',
-    myJournal: '/my-journal'
+    addDream: '/add-dream',
+    dream: (id: string) => `/dream/${id}`,
 };
 
 export default paths;

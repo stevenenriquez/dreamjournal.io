@@ -14,8 +14,8 @@ export default function NavBar() {
                 <Link href={path.home} className="w-24 flex-auto p-2">
                     Home
                 </Link>
-                <Link href={path.myJournal}>
-                    <p className=" w-32 flex-auto p-2">My Journal</p>
+                <Link href={path.addDream}>
+                    <p className=" w-32 flex-auto p-2">Add Dream</p>
                 </Link>
             </h2>
 

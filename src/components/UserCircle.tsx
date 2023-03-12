@@ -1,15 +1,14 @@
 'use client';
 
 import { signOut } from 'next-auth/react';
-import Link from 'next/link';
 import { useState } from 'react';
-import path from '../utils/paths';
+import Image from 'next/image';
 
 export default function UserCircle() {
     const [userMenuToggle, setUserMenuToggle] = useState(false);
 
-    const toggleMenu = () => {
-        setUserMenuToggle(!userMenuToggle);
+    const toggleMenu = (enabled?: boolean ) => {
+        enabled === undefined ? setUserMenuToggle(!userMenuToggle) : setUserMenuToggle(enabled);
     };
 
     const logOut = () => {
@@ -20,29 +19,19 @@ export default function UserCircle() {
     return (
         <>
             <button
-                onClick={() => toggleMenu()}
+                onMouseDown={() => toggleMenu()}
                 className="transition ease-in-out hover:opacity-90"
             >
-                <img
-                    src="favicon.ico"
+                <Image
+                    src="/favicon.ico"
+                    alt="User"
+                    width={128}
+                    height={128}
                     className="float-right h-9 w-9 rounded-full"
                 />
             </button>
             {userMenuToggle ? (
-                <ul className="absolute right-6 w-40 p-2 text-right transition ease-in-out">
-                    <li className="transition ease-in-out hover:text-violet-500">
-                        <Link href={path.profile} onClick={() => toggleMenu()}>
-                            My Profile
-                        </Link>
-                    </li>
-                    <li className="transition ease-in-out hover:text-violet-400">
-                        <Link
-                            href={path.myJournal}
-                            onClick={() => toggleMenu()}
-                        >
-                            My Journal
-                        </Link>
-                    </li>
+                <ul className="absolute right-6 w-40 p-2 text-right transition ease-in-out bg-gray-900 rounded-lg">
                     <li className="transition ease-in-out hover:text-violet-300">
                         <button onClick={() => logOut()}>Logout</button>
                     </li>
