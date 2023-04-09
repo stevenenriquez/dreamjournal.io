@@ -16,7 +16,7 @@ export default function NavBar() {
     }
 
     return (
-        <nav className="flex p-4 text-center">
+        <nav className="flex p-4 mt-4 text-center">
             <h2 className="flex">
                 {navLinks.map(link => {
                     return (
@@ -27,15 +27,15 @@ export default function NavBar() {
                 })}
             </h2>
 
-            <div className="ml-auto">
-                {session ? (
-                    <UserCircle />
-                ) : status === 'loading' ? (
-                    <main>Loading...</main>
-                ) : (
-                    <button className="p-2" onClick={() => signIn('discord')}>
-                        Sign In
-                    </button>
+            <div className="ml-auto pr-4">
+                {session ? <UserCircle /> : (
+                    status !== 'loading' && (
+                        <div className="mt-4 mr-8">
+                            <button onClick={() => signIn('discord')}>
+                                Sign In
+                            </button>
+                        </div>
+                    )
                 )}
             </div>
         </nav>

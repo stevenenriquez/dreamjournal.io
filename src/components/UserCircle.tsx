@@ -1,10 +1,12 @@
 'use client';
 
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Image from 'next/image';
 
 export default function UserCircle() {
+    const { data: session } = useSession();
+
     const [userMenuToggle, setUserMenuToggle] = useState(false);
 
     const toggleMenu = (enabled?: boolean ) => {
@@ -20,19 +22,18 @@ export default function UserCircle() {
         <>
             <button
                 onMouseDown={() => toggleMenu()}
-                className="transition ease-in-out hover:opacity-90"
             >
                 <Image
-                    src="/favicon.ico"
+                    src={session?.user?.image || '/favicon.ico'}
                     alt="User"
-                    width={128}
-                    height={128}
-                    className="float-right h-9 w-9 rounded-full"
+                    width={64}
+                    height={64}
+                    className="float-right h-14 w-14 rounded-full border border-gray-800 hover:border-gray-600 transition ease-in-out"
                 />
             </button>
             {userMenuToggle ? (
-                <ul className="absolute right-6 w-40 p-2 text-right transition ease-in-out bg-gray-900 rounded-lg">
-                    <li className="transition ease-in-out hover:text-violet-300">
+                <ul className="absolute right-6 w-40 p-2 text-right transition ease-in-out bg-gray-800 hover:bg-gray-600 rounded-lg">
+                    <li className="text-center">
                         <button onClick={() => logOut()}>Logout</button>
                     </li>
                 </ul>

@@ -6,7 +6,7 @@ import path from '../../src/utils/paths';
 
 export default function DreamEntry(props: { dream: Dream & {author: User} }) {
     return (
-        <Link href={path.dream(props.dream.id)} className='border-2 border-gray-800 rounded-lg m-6 p-4 w-full hover:bg-gray-900 transition ease-in-out hover:scale-105'>
+        <Link href={`${path.dream}/[slug]`} as={`${path.dream}/${props.dream.id}`} className='border-2 border-gray-800 rounded-lg m-6 p-4 w-11/12 hover:bg-gray-900 transition ease-in-out hover:scale-105'>
             <h1 className='mt-2'>{truncate(props.dream.title, 20)}</h1>
             <p className='mt-2 text-gray-400'>{truncate(props.dream.content)}</p>
             <div className='mt-2 w-max text-purple-300'>
