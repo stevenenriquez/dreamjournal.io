@@ -2,6 +2,7 @@
 
 import NavBar from '../components/NavBar';
 import { SessionProvider } from 'next-auth/react';
+import '../styles/globals.css';
 
 type RootLayoutProps = {
     children: React.ReactNode;
