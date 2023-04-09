@@ -1,9 +1,10 @@
 'use client';
 
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import UserCircle from './UserCircle';
 import path from '../utils/paths';
+import SignInButton from './SignInButton';
 
 export default function NavBar() {
     const { data: session, status } = useSession();
@@ -29,13 +30,7 @@ export default function NavBar() {
 
             <div className="ml-auto pr-4">
                 {session ? <UserCircle /> : (
-                    status !== 'loading' && (
-                        <div className="mt-4 mr-8">
-                            <button onClick={() => signIn('discord')}>
-                                Sign In
-                            </button>
-                        </div>
-                    )
+                    status !== 'loading' && <div className="mt-4 mr-8"><SignInButton /></div>
                 )}
             </div>
         </nav>

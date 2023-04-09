@@ -10,8 +10,7 @@ export default function DreamEntry(props: { dream: Dream & {author: User} }) {
             <h1 className='mt-2'>{truncate(props.dream.title, 20)}</h1>
             <p className='mt-2 text-gray-400'>{truncate(props.dream.content)}</p>
             <div className='mt-2 w-max text-purple-300'>
-                {/* TODO: Add default avatar, place avatar into seperate component */}
-                <Image src={props.dream.author.image || ''} alt={props.dream.author.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
+                <Image src={props.dream.author.image || '/favicon.ico'} alt={props.dream.author.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                 {props.dream.author.name}
             </div>
         </Link>

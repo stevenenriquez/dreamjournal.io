@@ -10,10 +10,10 @@ async function getDreams() {
         }
     });
 
-    return dreams
+    return dreams;
 }
 
-async function Home() {
+export default async function Home() {
 
     const dreams = await getDreams();
 
@@ -23,5 +23,3 @@ async function Home() {
         </div>
     );
 }
-
-export default Home;
