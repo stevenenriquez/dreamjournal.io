@@ -2,7 +2,7 @@ import { prisma } from '../../server/db/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { HTTP_STATUS_CODES, HTTP_STATUS_MESSAGES, HTTP_METHODS } from '../../constants/db';
 import { getServerAuthSession } from '../../server/common/get-server-auth-session';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 
 /**
  * Dream API
@@ -11,7 +11,7 @@ import { Prisma } from '@prisma/client';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if(req) {
         /**
-         * GET 
+         * GET
          */
         if(req.method === HTTP_METHODS.GET) {
             // handle non-authenticated retrievals
