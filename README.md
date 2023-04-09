@@ -18,7 +18,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 1. Install dependencies via `npm install`
 1. Create `.env` file and populate environment variables (utilizing `.env.example` as reference)
 1. Install Docker ([via Windows](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows))
-1. Start postgresql container with `sudo docker run -itd -e POSTGRES_USER={USER_HERE} -e POSTGRES_PASSWORD={PASSWORD_HERE} -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres`
+1. Start postgresql container with `docker run --name dreamdb -p 5432:5432 -e POSTGRES_USER=usr -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=postgresdb -d postgres`
 1. Create tables in database via Prisma with `npx prisma db push`
     - Schema is defined in prisma/schema.prisma
     - To apply any future updates to the schema, re-run `npx prisma db push`

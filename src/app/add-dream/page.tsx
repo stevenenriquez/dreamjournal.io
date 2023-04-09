@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { HTTP_METHODS } from '../../constants/db';
+import { useRouter } from 'next/navigation'
+import { HTTP_METHODS, HTTP_STATUS_CODES } from '../../constants/db';
 
 export default function AddDream() {
+    const router = useRouter();
+
     const [formData, setFormData] = useState({
         title: '',
         content: '',
@@ -22,10 +25,14 @@ export default function AddDream() {
 
             console.log(body)
 
-            await fetch('/api/dream', {
+            const postResponse = await fetch('/api/dream', {
                 method: HTTP_METHODS.POST, 
                 body: JSON.stringify(body),
             });
+
+            if(postResponse.status === HTTP_STATUS_CODES.CREATED) {
+                router.push('/');
+            }
         } catch (err) {
             console.error(err);
         }

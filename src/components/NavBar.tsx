@@ -8,15 +8,23 @@ import path from '../utils/paths';
 export default function NavBar() {
     const { data: session, status } = useSession();
 
+    const navLinks = [];
+
+    navLinks.push({title: 'Home', id: 'nav-link-home', path: path.home});
+    if(session) {
+        navLinks.push({title: 'Add Dream', id: 'nav-link-add-dream', path: path.addDream});
+    }
+
     return (
         <nav className="flex p-4 text-center">
             <h2 className="flex">
-                <Link href={path.home} className="w-24 flex-auto p-2">
-                    Home
-                </Link>
-                <Link href={path.addDream}>
-                    <p className=" w-32 flex-auto p-2">Add Dream</p>
-                </Link>
+                {navLinks.map(link => {
+                    return (
+                        <Link key={link.id} href={link.path} className="w-24 flex-auto p-2">
+                            <p className="w-32 flex-auto p-2">{link.title}</p>
+                        </Link>
+                    );
+                })}
             </h2>
 
             <div className="ml-auto">

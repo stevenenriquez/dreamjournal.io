@@ -1,11 +1,11 @@
-export const HTTP_METHODS = {
+export const HTTP_METHODS = Object.freeze({
     GET: 'GET',
     POST: 'POST',
     PUT: 'PUT',
     DELETE: 'DELETE'
-};
+});
 
-export const HTTP_STATUS_CODES = {
+export const HTTP_STATUS_CODES = Object.freeze({
     OK: 200,
     CREATED: 201,
     NO_CONTENT: 204,
@@ -14,9 +14,9 @@ export const HTTP_STATUS_CODES = {
     FORBIDDEN: 403,
     NOT_FOUND: 404,
     INTERNAL_SERVER_ERROR: 500
-};
+});
 
-export const HTTP_STATUS_MESSAGES = {
+export const HTTP_STATUS_MESSAGES = Object.freeze({
     OK: 'OK',
     CREATED: 'Created',
     NO_CONTENT: 'No Content',
@@ -25,4 +25,4 @@ export const HTTP_STATUS_MESSAGES = {
     FORBIDDEN: 'Forbidden',
     NOT_FOUND: 'Not Found',
     INTERNAL_SERVER_ERROR: 'Internal Server Error'
-};
+});
