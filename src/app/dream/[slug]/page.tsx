@@ -26,7 +26,7 @@ export default async function Dream(context: { params: Record<string, string> })
                 <p className='mt-4 text-gray-400'>{dream.content}</p>
                 <div className='mt-6 text-purple-300'>
                     {/* TODO: Add a default avatar */}
-                    <Image src={dream.author.image || ''} alt={dream.author?.name || 'User Profile Picture'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
+                    <Image src={dream.author.image || ''} alt={dream.author?.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                     {dream.author.name}
                 </div>
             </div>
