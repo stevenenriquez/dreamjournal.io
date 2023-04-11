@@ -21,8 +21,8 @@ export default async function Dream(context: { params: Record<string, string> })
 
     if(dream) {
 
-        let wordCount = dream.content.split(' ').length;
-        let readTime = Math.round(wordCount / 130);
+        const wordCount = dream.content.split(' ').length;
+        const readTime = Math.round(wordCount / 130);
 
         return (
             <div className='border border-4 border-gray-800 rounded-lg min-h-[80vh] p-8 m-6 mt-4 md:mx-16 lg:mx-32 xl:mx-64 text-center'>
