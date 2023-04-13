@@ -17,12 +17,12 @@ export default function NavBar() {
     }
 
     return (
-        <nav className="flex p-4 mt-4 text-center">
+        <nav className="flex ml-6 mt-4">
             <h2 className="flex">
                 {navLinks.map(link => {
                     return (
-                        <Link key={link.id} href={link.path} className="w-24 flex-auto p-2">
-                            <p className="w-32 flex-auto p-2">{link.title}</p>
+                        <Link key={link.id} href={link.path} className="p-1 hover:text-purple-400 transition-colors ease-in-out">
+                            <p className="pt-2 mr-6">{link.title}</p>
                         </Link>
                     );
                 })}
@@ -30,7 +30,7 @@ export default function NavBar() {
 
             <div className="ml-auto pr-4">
                 {session ? <UserCircle /> : (
-                    status !== 'loading' && <div className="mt-4 mr-8"><SignInButton /></div>
+                    status !== 'loading' && <SignInButton />
                 )}
             </div>
         </nav>
