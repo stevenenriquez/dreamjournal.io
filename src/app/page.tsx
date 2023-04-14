@@ -19,7 +19,7 @@ export default async function Home() {
 
     return (
         <div className='flex min-h-screen flex-wrap justify-center mx-1 mb-2 mt-6 sm:m-6'>
-            {dreams.map((dream: Dream & {author: User}) => <DreamEntry dream={dream} key={dream.id} />)}
+            {dreams.map((dream: Dream & {author: User}) => <DreamEntry dream={dream} key={`dream-entry-${dream.id}`} />)}
         </div>
     );
 }

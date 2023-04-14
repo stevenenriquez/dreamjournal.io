@@ -13,8 +13,8 @@ export default function DreamEntry(props: { dream: Dream & {author: User} }) {
                 <Image src={props.dream.author.image || '/favicon.ico'} alt={props.dream.author.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                 {props.dream.author.name} · {moment(props.dream.createdAt).fromNow() || ''}
             </div>
-            <h1 className='mt-2'>{truncate(props.dream.title)}</h1>
-            <p className='mt-2 text-gray-700'>{truncate(props.dream.content)}</p>
+            <h1 className='mt-2'>{truncate(props.dream.title, 70)}</h1>
+            <p className='mt-2 text-gray-700 whitespace-pre-wrap'>{truncate(props.dream.content, 420)}</p>
             <div className='mt-8'>
                 <DreamInteractions dream={props.dream} />
             </div>
