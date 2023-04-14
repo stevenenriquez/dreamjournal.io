@@ -18,7 +18,8 @@ export default async function Home() {
     const dreams = await getDreams();
 
     return (
-        <div className='flex min-h-screen flex-wrap justify-center mx-1 mb-2 mt-6 sm:m-6'>
+        <div className='flex flex-col items-center h-screen mt-4 mb-16'>
+            <h1 className='text-3xl mr-auto ml-6'>Explore</h1>
             {dreams.map((dream: Dream & {author: User}) => <DreamEntry dream={dream} key={`dream-entry-${dream.id}`} />)}
         </div>
     );

@@ -3,6 +3,7 @@
 import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Image from 'next/image';
+import DarkModeToggle from './DarkModeToggle';
 
 export default function UserCircle() {
     const { data: session } = useSession();
@@ -28,13 +29,16 @@ export default function UserCircle() {
                     alt="User"
                     width={64}
                     height={64}
-                    className="float-right h-10 w-10 rounded-full border border-black hover:border-gray-600 hover:scale-110 transition ease-in-out"
+                    className="float-right h-12 w-12 rounded-full border-2 border-purple-500 hover:scale-110 transition ease-in-out"
                 />
             </button>
             {userMenuToggle ? (
-                <ul className="absolute sm:static right-6 bottom-14 w-24 p-2 text-right transition ease-in-out bg-gray-200 hover:bg-gray-300 rounded-lg">
+                <ul className="absolute right-6 bottom-20 md:bottom-auto md:right-auto w-24 p-2 text-right transition ease-in-out bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-800 rounded-lg">
                     <li className="text-center">
-                        <button onClick={() => logOut()}>Logout</button>
+                        <button onClick={() => logOut()} className="mt-2">Logout</button>
+                    </li>
+                    <li className="scale-75 mr-3">
+                        <DarkModeToggle />
                     </li>
                 </ul>
             ) : null}

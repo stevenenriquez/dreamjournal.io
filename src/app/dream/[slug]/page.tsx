@@ -29,22 +29,22 @@ export default async function Dream(context: { params: Record<string, string> })
         const readTime = Math.round(wordCount / 130);
 
         return (
-            <div className='min-h-[80vh] p-8 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
-                <Link href={path.home} as={path.home} className="m-4">
+            <div className='min-h-[80vh] mb-16 p-8 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
+                <Link href={path.home} as={path.home} className="m-4 dark:fill-white">
                     <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
                 </Link>
-                <h1><b>{dream.title}</b></h1>
-                <div className='mt-6 text-purple-700'>
+                <h1 className='text-xl'><b>{dream.title}</b></h1>
+                <div className='mt-6 text-purple-700 dark:text-purple-400'>
                     <Image src={dream.author.image || '/favicon.ico'} alt={dream.author?.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                     {dream.author.name}
                 </div>
                 {readTime >= 1 && (
-                    <div className="text-gray-500 m-4">{readTime} minute read</div>
+                    <div className="opacity-50 m-4">{readTime} minute read</div>
                 )}
-                <div className="border border-b-1 border-gray-200 mt-6" />
-                <p className='text-start mt-8 text-gray-700 text-center whitespace-pre-wrap'>{dream.content}</p>
-                <div className="mt-4">
-                    <DreamInteractions dream={dream} />
+                <div className="border border-b-1 border-gray-200 dark:border-gray-800 mt-6" />
+                <p className='text-start mt-8 opacity-60 whitespace-pre-wrap'>{dream.content}</p>
+                <div className="mt-6">
+                    <DreamInteractions dreamId={dream.id} />
                 </div>
             </div>
         )

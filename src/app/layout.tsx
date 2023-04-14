@@ -2,6 +2,7 @@
 
 import SideNav from '../components/SideNav';
 import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'next-themes';
 import '../styles/globals.css';
 import BottomNav from '../components/BottomNav';
 
@@ -17,20 +18,26 @@ export default function Layout({ children }: RootLayoutProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
             <body className="h-screen">
-                <SessionProvider>
-                    <div className="flex flex-row">
-                        <div className="hidden md:inline mt-6 mb-6 w-32 border-r-2 border-r-gray-200 h-screen">
-                            <SideNav />
+                <ThemeProvider attribute='class'>
+                    <SessionProvider>
+                        <div className="flex flex-row h-screen">
+                            <nav className="hidden md:inline mt-6 mb-6 w-24 sm:w-26 border-r-2 border-r-gray-200 h-screen">
+                                <SideNav />
+                            </nav>
+                            <main className="w-screen rounded-lg m-2 h-screen overflow-auto no-scrollbar">
+                                {children}
+                            </main>
+                            <div className="my-6 mr-2 w-0 hidden xl:block xl:w-3/12 border-2 border-gray-300 dark:border-gray-800 h-screen rounded-lg m-2">
+                                <div className="flex flex-col items-center p-4">
+                                    <h1 className="text-2xl">Wow, hi there</h1>
+                                </div>
+                            </div>
                         </div>
-                        <div className="w-screen rounded-lg m-2 h-screen overflow-auto no-scrollbar">
-                            {children}
-                        </div>
-                        <div className="w-0 lg:w-96 bg-gray-100 h-screen rounded-lg m-2"></div>
-                    </div>
-                    <div className='block md:hidden'>
-                        <BottomNav />
-                    </div>
-                </SessionProvider>
+                        <nav className='block md:hidden'>
+                            <BottomNav />
+                        </nav>
+                    </SessionProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
