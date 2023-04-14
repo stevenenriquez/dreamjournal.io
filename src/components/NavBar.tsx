@@ -17,22 +17,8 @@ export default function NavBar() {
     }
 
     return (
-        <nav className="flex ml-6 mt-4">
-            <h2 className="flex">
-                {navLinks.map(link => {
-                    return (
-                        <Link key={link.id} href={link.path} className="p-1 hover:text-purple-400 transition-colors ease-in-out">
-                            <p className="pt-2 mr-6">{link.title}</p>
-                        </Link>
-                    );
-                })}
-            </h2>
+        <nav className="flex ml-5 mt-4">
 
-            <div className="ml-auto pr-4">
-                {session ? <UserCircle /> : (
-                    status !== 'loading' && <SignInButton />
-                )}
-            </div>
         </nav>
     );
 }

@@ -40,7 +40,6 @@ export default function AddDream() {
 
     return (
         <div className="mt-10 text-center">
-            <h1>Add Dream</h1>
             <div className="m-4">
                 <input
                     type="text"
@@ -50,7 +49,7 @@ export default function AddDream() {
                     onChange={event =>
                         setFormData({ ...formData, title: event.target.value })
                     }
-                    className="w-3/6 rounded-xl border border-white bg-black p-4"
+                    className="w-4/5 rounded-xl border border-white bg-gray-200 p-4"
                 />
             </div>
             <div className="m-4">
@@ -62,7 +61,7 @@ export default function AddDream() {
                     onChange={event =>
                         setFormData({ ...formData, sleepTime: event.target.value })
                     }
-                    className="mr-2 w-3/12 rounded-xl border border-white bg-black p-2"
+                    className="mr-2 w-2/5 rounded-xl border border-white bg-gray-200 p-4"
                 />
                 <input
                     type="datetime-local"
@@ -72,7 +71,7 @@ export default function AddDream() {
                     onChange={event =>
                         setFormData({ ...formData, wakeTime: event.target.value })
                     }
-                    className="w-3/12 rounded-xl border border-white bg-black p-2"
+                    className="w-2/5 justify-between rounded-xl border border-white bg-gray-200 p-4"
                 />
             </div>
             <div className="m-4">
@@ -83,12 +82,12 @@ export default function AddDream() {
                     onChange={event =>
                         setFormData({ ...formData, content: event.target.value })
                     }
-                    className="mb-4 w-3/6 rounded-xl border border-white bg-black p-4"
+                    className="mb-4 w-4/5 rounded-xl border border-white bg-gray-200 p-4 pb-64"
                 />
             </div>
             <button
                 onClick={() => handleCreate()}
-                className="w-16 rounded-lg bg-gray-800 px-4"
+                className="w-16 rounded-lg bg-gray-500 text-white p-4"
             >
                 Add
             </button>

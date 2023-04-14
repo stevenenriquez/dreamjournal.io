@@ -28,11 +28,11 @@ export default function UserCircle() {
                     alt="User"
                     width={64}
                     height={64}
-                    className="float-right h-14 w-14 rounded-full border border-gray-800 hover:border-gray-600 transition ease-in-out"
+                    className="float-right h-14 w-14 rounded-full border border-black hover:border-gray-600 hover:scale-110 transition ease-in-out"
                 />
             </button>
             {userMenuToggle ? (
-                <ul className="absolute right-6 w-40 p-2 text-right transition ease-in-out bg-gray-800 hover:bg-gray-600 rounded-lg">
+                <ul className="absolute left-6 w-24 p-2 text-right transition ease-in-out bg-gray-200 hover:bg-gray-300 rounded-lg">
                     <li className="text-center">
                         <button onClick={() => logOut()}>Logout</button>
                     </li>
