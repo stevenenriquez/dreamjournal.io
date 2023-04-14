@@ -4,6 +4,7 @@ import Link from 'next/link';
 import path from '../../../utils/paths';
 import { prisma } from '../../../server/db/client';
 import Image from 'next/image';
+import moment from 'moment';
 
 export default async function Dream(context: { params: Record<string, string> }) {
     const { slug } = context.params;
@@ -29,14 +30,14 @@ export default async function Dream(context: { params: Record<string, string> })
         const readTime = Math.round(wordCount / 130);
 
         return (
-            <div className='min-h-[80vh] mb-16 p-8 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
-                <Link href={path.home} as={path.home} className="m-4 dark:fill-white">
+            <div className='min-h-[80vh] mb-16 p-6 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
+                <Link href={path.home} as={path.home} className="dark:fill-white">
                     <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
                 </Link>
-                <h1 className='text-xl'><b>{dream.title}</b></h1>
-                <div className='mt-6 text-purple-700 dark:text-purple-400'>
+                <h1 className='text-xl mt-4'><b>{dream.title}</b></h1>
+                <div className='mt-4 text-purple-700 dark:text-purple-400'>
                     <Image src={dream.author.image || '/favicon.ico'} alt={dream.author?.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
-                    {dream.author.name}
+                    {dream.author.name} · {moment(dream.createdAt).fromNow() || ''}
                 </div>
                 {readTime >= 1 && (
                     <div className="opacity-50 m-4">{readTime} minute read</div>

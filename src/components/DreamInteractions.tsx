@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type MouseEvent } from "react";
-import SvgIcon, { Like, Comment, Share, EditIcon, DeleteIcon } from "./Icon";
+import SvgIcon, { Like, Comment, Share } from "./Icon";
 export default function DreamInteractions(props: { dreamId: string } ) {
     
     const [isLiked, setIsLiked] = useState(false);
@@ -24,17 +24,17 @@ export default function DreamInteractions(props: { dreamId: string } ) {
         console.log('share');
     }
 
-    const handleEdit = (event: MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        event.stopPropagation();
-        console.log('edit');
-    }
+    // const handleEdit = (event: MouseEvent<HTMLButtonElement>) => {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     console.log('edit');
+    // }
 
-    const handleDelete = (event: MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        event.stopPropagation();
-        console.log('delete');
-    }
+    // const handleDelete = (event: MouseEvent<HTMLButtonElement>) => {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     console.log('delete');
+    // }
     
     return (
         <div className='flex justify-between'>
@@ -51,14 +51,14 @@ export default function DreamInteractions(props: { dreamId: string } ) {
                     <SvgIcon svg={Share}/>
                 </button>
             </div>
-            <div className='flex flex-row'>
+            {/* <div className='flex flex-row'>
                 <button onClick={event => handleEdit(event)} key={`btn-comment-${props.dreamId}`} className={'fill-black dark:fill-white opacity-80 mr-2 hover:scale-125 transition-transform ease-in-out'}>
                     <SvgIcon svg={EditIcon}/>
                 </button>
                 <button onClick={event => handleDelete(event)} key={`btn-share-${props.dreamId}`} className={'fill-black dark:fill-white opacity-80 mr-2 hover:scale-125 transition-transform ease-in-out'}>
                     <SvgIcon svg={DeleteIcon}/>
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }
