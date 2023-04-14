@@ -33,7 +33,7 @@ export default async function Dream(context: { params: Record<string, string> })
                 <Link href={path.home} as={path.home} className="m-4">
                     <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
                 </Link>
-                <h1>{dream.title}</h1>
+                <h1><b>{dream.title}</b></h1>
                 <div className='mt-6 text-purple-700'>
                     <Image src={dream.author.image || '/favicon.ico'} alt={dream.author?.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                     {dream.author.name}
