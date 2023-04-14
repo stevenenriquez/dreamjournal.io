@@ -6,7 +6,7 @@ interface IconProps {
     height?: number;
     viewBoxWidth?: number;
     viewBoxHeight?: number;
-};
+}
 
 export default function SvgIcon(props: IconProps) {
     const DEFAULT_WIDTH = 24;
@@ -25,7 +25,7 @@ export default function SvgIcon(props: IconProps) {
             {props.svg}
         </svg>
     )
-};
+}
 
 // Dream Interactions
 
