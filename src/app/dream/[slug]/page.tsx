@@ -1,3 +1,7 @@
+import DreamInteractions from '../../../components/DreamInteractions';
+import SvgIcon, { Back } from '../../../components/Icon';
+import Link from 'next/link';
+import path from '../../../utils/paths';
 import { prisma } from '../../../server/db/client';
 import Image from 'next/image';
 
@@ -25,7 +29,10 @@ export default async function Dream(context: { params: Record<string, string> })
         const readTime = Math.round(wordCount / 130);
 
         return (
-            <div className='min-h-[80vh] p-8 mt-4 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
+            <div className='min-h-[80vh] p-8 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
+                <Link href={path.home} as={path.home} className="m-4">
+                    <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
+                </Link>
                 <h1>{dream.title}</h1>
                 <div className='mt-6 text-purple-700'>
                     <Image src={dream.author.image || '/favicon.ico'} alt={dream.author?.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
@@ -36,6 +43,9 @@ export default async function Dream(context: { params: Record<string, string> })
                 )}
                 <div className="border border-b-1 border-gray-200 mt-6" />
                 <p className='text-start mt-8 text-gray-700 text-center whitespace-pre-wrap'>{dream.content}</p>
+                <div className="mt-4">
+                    <DreamInteractions dream={dream} />
+                </div>
             </div>
         )
     } else {
