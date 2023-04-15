@@ -18,7 +18,13 @@ const config = {
         defaultLocale: 'en'
     },
     images: {
-        domains: ['cdn.discordapp.com', '*.googleusercontent.com']
+        domains: ['cdn.discordapp.com'],
+        remotePatterns: [{
+            protocol: "https",
+            hostname: "*.googleusercontent.com",
+            port: "",
+            pathname: "**",
+        }],
     },
     webpack: (config, { isServer }) => {
         if (isServer) {
