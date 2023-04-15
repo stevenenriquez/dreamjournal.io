@@ -30,7 +30,7 @@ export default function Layout({ children }: RootLayoutProps) {
                             <div className="my-6 mr-2 w-0 hidden xl:block xl:w-1/3 max-w-sm border-4 border-gray-200 dark:border-black h-screen dark:bg-black rounded-lg m-2">
                                 <div className="flex flex-col items-center p-4">
                                     <h1 className="text-2xl mt-4">Wow, hi there</h1>
-                                    <p className="text-center mt-8 text-gray-800 dark:text-gray-300">This is a placeholder for a sidebar. I'm not sure what I want to put here yet, but i'm gonna figure that out.</p>
+                                    <p className="text-center mt-8 text-gray-800 dark:text-gray-300">This is a placeholder for a sidebar. I&apos;m not sure what I want to put here yet, but i&apos;m gonna figure that out.</p>
                                 </div>
                             </div>
                         </div>

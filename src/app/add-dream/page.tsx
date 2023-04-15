@@ -5,10 +5,30 @@ import { useRouter } from 'next/navigation'
 import { HTTP_METHODS, HTTP_STATUS_CODES } from '../../constants/db';
 import moment from 'moment';
 
+interface DreamTypes {
+    [key: string]: boolean;
+}
+
+interface DreamFormData {
+    title: string;
+    content: string;
+    sleepTime: string;
+    wakeTime: string;
+    type: DreamTypes;
+}
+
+interface PostDreamBody {
+    title: string;
+    content: string;
+    sleepTime: string;
+    wakeTime: string;
+    type: string[];
+}
+
 export default function AddDream() {
     const router = useRouter();
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<DreamFormData>({
         title: '',
         content: '',
         sleepTime: moment().format('YYYY-MM-DDTHH:mm'),
@@ -29,8 +49,8 @@ export default function AddDream() {
                 content: formData.content,
                 sleepTime: formData.sleepTime,
                 wakeTime: formData.wakeTime,
-                type: []
-            }
+                type: [] as string[],
+            } as PostDreamBody;
 
             for(const key in formData.type) {
                 if(formData.type[key]) {
