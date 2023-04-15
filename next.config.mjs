@@ -1,4 +1,5 @@
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin'
+import withBundleAnalyzer from '@next/bundle-analyzer';
 
 // @ts-check
 /**
@@ -17,13 +18,7 @@ const config = {
         defaultLocale: 'en'
     },
     images: {
-        domains: ['cdn.discordapp.com'],
-        remotePatterns: [{
-            protocol: "https",
-            hostname: "*.googleusercontent.com",
-            port: "",
-            pathname: "**",
-        }],
+        domains: ['cdn.discordapp.com', '*.googleusercontent.com']
     },
     webpack: (config, { isServer }) => {
         if (isServer) {
@@ -33,4 +28,9 @@ const config = {
         return config
     }
 };
-export default config;
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+export default bundleAnalyzer(config);
