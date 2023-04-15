@@ -4,6 +4,7 @@ import { truncate } from '../../src/utils/strings';
 import Link from 'next/link';
 import path from '../../src/utils/paths';
 import DreamInteractions from './DreamInteractions';
+import DreamTypes from "./DreamTypes";
 import moment from "moment";
 
 export default function DreamEntry(props: { dream: Dream & {author: User} }) {
@@ -15,6 +16,9 @@ export default function DreamEntry(props: { dream: Dream & {author: User} }) {
             </div>
             <h1 className='mt-2'><b>{truncate(props.dream.title, 70)}</b></h1>
             <p className='mt-2 opacity-70 whitespace-pre-wrap'>{truncate(props.dream.content, 420)}</p>
+            <div className="mt-8">
+                <DreamTypes types={props.dream.type}/>
+            </div>
             <div className='mt-8'>
                 <DreamInteractions dreamId={props.dream.id} />
             </div>

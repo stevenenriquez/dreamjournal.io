@@ -30,13 +30,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         else if(req.method === HTTP_METHODS.POST) {
             const session = await getServerAuthSession({ req, res });
             if(session?.user?.id) {
-                const { title, content, sleepTime, wakeTime } = JSON.parse(req.body);
+                const { title, content, sleepTime, wakeTime, type } = JSON.parse(req.body);
                 const dream: Prisma.DreamCreateInput = {
                     title: title,
                     content: content,
                     author: { connect: { id: session.user.id } },
-                    sleepTime: new Date(sleepTime),
-                    wakeTime: new Date(wakeTime)
+                    sleepTime: sleepTime ? new Date(sleepTime) : new Date(),
+                    wakeTime: wakeTime ? new Date(wakeTime) : new Date(),
+                    type: type
                 };
             
                 const createDream = await prisma.dream.create({

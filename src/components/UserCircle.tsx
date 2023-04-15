@@ -33,7 +33,7 @@ export default function UserCircle() {
                 />
             </button>
             {userMenuToggle ? (
-                <ul className="absolute right-6 bottom-20 md:bottom-auto md:right-auto w-24 p-2 text-right transition ease-in-out bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-800 rounded-lg">
+                <ul className="absolute right-6 bottom-20 md:bottom-auto md:right-auto w-24 p-2 text-right transition ease-in-out bg-gray-200 dark:bg-black rounded-lg">
                     <li className="text-center">
                         <button onClick={() => logOut()} className="mt-2">Logout</button>
                     </li>

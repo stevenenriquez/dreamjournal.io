@@ -5,6 +5,7 @@ import path from '../../../utils/paths';
 import { prisma } from '../../../server/db/client';
 import Image from 'next/image';
 import moment from 'moment';
+import DreamTypes from '../../../components/DreamTypes';
 
 export default async function Dream(context: { params: Record<string, string> }) {
     const { slug } = context.params;
@@ -44,6 +45,9 @@ export default async function Dream(context: { params: Record<string, string> })
                 )}
                 <div className="border border-b-1 border-gray-200 dark:border-gray-800 mt-6" />
                 <p className='text-start mt-8 opacity-60 whitespace-pre-wrap'>{dream.content}</p>
+                <div className="mt-6">
+                    <DreamTypes types={dream.type}/>
+                </div>
                 <div className="mt-6">
                     <DreamInteractions dreamId={dream.id} />
                 </div>
