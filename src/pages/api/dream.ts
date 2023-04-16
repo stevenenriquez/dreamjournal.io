@@ -1,6 +1,6 @@
 import { prisma } from '../../server/db/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { HTTP_STATUS_CODES, HTTP_STATUS_MESSAGES, HTTP_METHODS } from '../../constants/db';
+import { HTTP_STATUS_CODES, HTTP_STATUS_MESSAGES, HTTP_METHODS } from '../../constants/http';
 import { getServerAuthSession } from '../../server/common/get-server-auth-session';
 import type { Prisma } from '@prisma/client';
 

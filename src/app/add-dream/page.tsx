@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
-import { HTTP_METHODS, HTTP_STATUS_CODES } from '../../constants/db';
+import { HTTP_METHODS, HTTP_STATUS_CODES } from '../../constants/http';
 import moment from 'moment';
 
 interface DreamTypes {

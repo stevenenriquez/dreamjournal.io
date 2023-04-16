@@ -28,14 +28,6 @@ export const authOptions: NextAuthOptions = {
             clientId: env.DISCORD_CLIENT_ID,
             clientSecret: env.DISCORD_CLIENT_SECRET
         }),
-        // TwitterProvider({
-        //     clientId: env.TWITTER_CLIENT_ID,
-        //     clientSecret: env.TWITTER_CLIENT_SECRET,
-        // }),
-        // FacebookProvider({
-        //     clientId: env.FACEBOOK_CLIENT_ID,
-        //     clientSecret: env.FACEBOOK_CLIENT_SECRET,
-        // }),
     ]
 };
 

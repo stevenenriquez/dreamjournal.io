@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { HTTP_STATUS_CODES, HTTP_STATUS_MESSAGES, HTTP_METHODS } from '../../../constants/db';
+import { HTTP_STATUS_CODES, HTTP_STATUS_MESSAGES, HTTP_METHODS } from '../../../constants/http';
 import { prisma } from '../../../server/db/client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

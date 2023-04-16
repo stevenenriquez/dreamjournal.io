@@ -1,7 +1,7 @@
 import DreamInteractions from '../../../components/DreamInteractions';
 import SvgIcon, { Back } from '../../../components/Icon';
 import Link from 'next/link';
-import path from '../../../utils/paths';
+import { PATH } from '../../../constants/path';
 import { prisma } from '../../../server/db/client';
 import Image from 'next/image';
 import moment from 'moment';
@@ -32,7 +32,7 @@ export default async function Dream(context: { params: Record<string, string> })
 
         return (
             <div className='min-h-[80vh] mb-16 p-6 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
-                <Link href={path.home} as={path.home} className="dark:fill-white">
+                <Link href={PATH.HOME} as={PATH.HOME} className="dark:fill-white">
                     <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
                 </Link>
                 <h1 className='text-xl mt-4'><b>{dream.title}</b></h1>
