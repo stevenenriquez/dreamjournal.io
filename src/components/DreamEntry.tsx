@@ -11,7 +11,7 @@ export default function DreamEntry(props: { dream: Dream & {author: User} }) {
     return (
         <div className="border-b border-b-gray-300 dark:border-b-gray-700 p-4 pb-8 w-11/12 transition ease-in-out">
             <div className='mt-2 w-max text-purple-700 dark:text-purple-400'>
-                <Image src={props.dream.author.image || '/favicon.ico'} alt={props.dream.author.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
+                <Image src={'/favicon.ico'} alt={props.dream.author.name || 'User Avatar'} width={64} height={64} className='rounded-full w-8 h-8 inline-block mr-2' />
                 {props.dream.author.name} · {moment(props.dream.createdAt).fromNow() || ''}
             </div>
             <Link href={`${PATH.DREAM}/[slug]`} as={`${PATH.DREAM}/${props.dream.id}`}>
