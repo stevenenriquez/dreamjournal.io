@@ -1,15 +1,20 @@
 'use client'
 
 import { useState } from 'react';
+import { HTTP_STATUS_CODES } from '../constants/http';
 
 export default function DreamMenu(props: { dreamId: string }) {
     
     const [showMenu, setShowMenu] = useState(false);
     
     async function handleDelete() {
-        await fetch(`/api/dream/${props.dreamId}`, {
+        const response = await fetch(`/api/dream/${props.dreamId}`, {
             method: 'DELETE',
         });
+
+        if(response.status === HTTP_STATUS_CODES.NO_CONTENT) {
+            window.location.href = '/';
+        }
     }
 
     return (
@@ -19,9 +24,6 @@ export default function DreamMenu(props: { dreamId: string }) {
             </button>
             {showMenu ? (
                 <ul className="absolute right-2 bg-gray-200 p-4 rounded-lg dark:bg-black ">
-                    <li className="text-center">
-                        <button className="mb-2">Edit</button>
-                    </li>
                     <li className="text-center">
                         <button onClick={() => handleDelete()}>Delete</button>
                     </li>

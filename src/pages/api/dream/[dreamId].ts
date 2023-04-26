@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { HTTP_METHODS } from "../../../constants/http";
+import { HTTP_METHODS, HTTP_STATUS_CODES } from "../../../constants/http";
 import { prisma } from "../../../server/db/client";
 import { getServerAuthSession } from "../../../server/common/get-server-auth-session";
 
@@ -33,15 +33,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                             }
                         });
         
-                        return res.status(200).json({ message: 'Dream deleted', dreamId: dreamId });
+                        return res.status(HTTP_STATUS_CODES.NO_CONTENT).json({ message: 'Dream deleted', dreamId: dreamId });
                     } else {
-                        return res.status(401).json({ message: 'Unauthorized' });
+                        return res.status(HTTP_STATUS_CODES.UNAUTHORIZED).json({ message: 'Unauthorized' });
                     }
                 } else {
-                    return res.status(404).json({ message: 'Dream not found' });
+                    return res.status(HTTP_STATUS_CODES.NOT_FOUND).json({ message: 'Dream not found' });
                 }
             } else {
-                return res.status(401).json({ message: 'Unauthorized' });
+                return res.status(HTTP_STATUS_CODES.UNAUTHORIZED).json({ message: 'Unauthorized' });
             }
         } 
     }
