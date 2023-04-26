@@ -4,6 +4,8 @@ import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Image from 'next/image';
 import DarkModeToggle from './DarkModeToggle';
+import Link from 'next/link';
+import { PATH } from '../constants/path';
 
 export default function UserCircle() {
     const { data: session } = useSession();
@@ -43,6 +45,9 @@ export default function UserCircle() {
             </button>
             {userMenuToggle ? (
                 <ul id="user-menu-list" className="absolute right-6 bottom-20 md:bottom-auto md:right-auto w-24 p-2 text-right transition ease-in-out bg-gray-200 dark:bg-black rounded-lg">
+                    <li className="text-center">
+                        <Link href={PATH.PROFILE}>My Journal</Link>
+                    </li>
                     <li className="text-center">
                         <button onClick={() => logOut()} className="mt-2">Logout</button>
                     </li>
