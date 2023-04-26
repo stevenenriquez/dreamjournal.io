@@ -33,10 +33,10 @@ export default async function Dream(context: { params: Record<string, string> })
 
         return (
             <>
-                <Link href={PATH.HOME} as={PATH.HOME} className="dark:fill-white fixed top-6 left-6 w-full md:hidden">
+                <Link href={PATH.HOME} as={PATH.HOME} className="dark:fill-white fixed top-6 left-6 rounded-full md:hidden">
                     <SvgIcon svg={Back} height={32} width={32} viewBoxHeight={24} viewBoxWidth={24} />
                 </Link>
-                <div className='fixed top-6 right-6 md:hidden'>
+                <div className='fixed top-6 right-6 md:hidden rounded-full'>
                     <DreamMenu dreamId={dream.id} />
                 </div>
                 <div className='min-h-[80vh] mt-12 mb-16 p-6 md:mx-8 lg:mx-16 xl:mx-16 text-center'>
